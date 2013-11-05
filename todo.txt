@@ -1,0 +1,11 @@
+####################
+1. Read arguments and transform them in the respectives types of data
+####################
+
+####################
+2. Justify the text
+####################
+
+####################
+3. Count words
+####################
