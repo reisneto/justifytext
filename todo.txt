@@ -1,5 +1,5 @@
 ####################
-1. Read arguments and transform them in the respectives types of data
+1. Read arguments and transform them in the respectives types of data #DONE
 ####################
 
 ####################
