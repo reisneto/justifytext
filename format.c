@@ -31,6 +31,11 @@ int main(int argc, char *argv[])
 	}
 	
 	line_size = atoi(argv[1]);
+	if(line_size <25 || line_size > 100)
+	{
+		fprintf(stderr, "the line size must be between 25 and 100 (inclusive)"\n);
+		exit(1);
+	}
 
 	doc = open_file(argv[2],"r");
 
@@ -80,6 +85,7 @@ int main(int argc, char *argv[])
 
 void print_doc(FILE *doc)
 {
+/* Function used to see what is inside a file*/
 	char line[MAX];
 	while(!feof(doc))
 	{
@@ -91,6 +97,7 @@ void print_doc(FILE *doc)
 
 FILE *open_file(char *filename,char type[])
 {
+/* A generic function to open files and check if there are errors */
 	FILE *doc;
 	doc = fopen(filename, type);
 	if (doc == NULL) 
@@ -122,12 +129,15 @@ int wordCount(char ***wordlist, int *numwords, char word[])
 
 int compare(const void* a,const void* b)
 {
+/* function used in qsort to sort words */
 	return(strcmp( *(  (char**)a ), *( (char**)b ) ) );
 
 }
 
 void printWordCounted(char **wordlist, int numwords, char *filename)
 {
+	/* since wordlist is ordered (see in main function), words that appears more than one time are one below each other.
+	 * What this function do is count those words to show only one time and with its counter */
 	int i, countWord=1;
 	char current[MAX],previous[MAX];
 	FILE* doc_out;
